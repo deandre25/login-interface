@@ -1,0 +1,158 @@
+.container {
+  text-align: center;
+  max-width: 400px;
+  padding: 20px;
+  margin: 180px auto;
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #1A1919;
+  margin-bottom: 40px;
+}
+
+.logo {
+  margin-bottom: 80px;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.auth-buttons_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px auto;
+  background-color: #ffffff;
+  font-size: 16px;
+  width: 192px;
+  height: 48px;
+  padding: 0 20px 0 20px;
+  gap: 10px;
+  border-radius: 6px;
+  border: 1.2px #d3d8dc solid;
+}
+
+.auth-buttons p {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #060E1E;
+}
+
+.divider {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 30px auto;
+  border-bottom: 1px solid #E3E6E9;
+}
+
+.divider::before,
+.divider::after {
+  content: 'OR';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 0 10px;
+  font-size: 14px;
+  color: #BEC5CC;
+}
+
+.input {
+  padding: 0 12px 0 12px;
+  gap: 6px;
+  border-radius: 6px;
+  width: 100%;
+  margin-bottom: 25px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1.2px #d3d8dc solid;
+}
+
+.input::placeholder {
+  color: #A1ABB5;
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-input input {
+  padding-right: 40px; /* Расстояние для размещения иконки */
+  vertical-align: middle; /* Выравнивание по вертикали */
+  box-sizing: border-box; /* Учитываем padding в общей ширине */
+}
+
+.password-input .toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #316FEA;
+  color: #fff;
+  font-size: 16px;
+  line-height: 21px;
+  margin-bottom: 20px;
+}
+
+.register-link {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #060E1E;
+  text-decoration: none;
+}
+
+.register-link a {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #316FEA;
+  /* Bootstrap primary color for example */
+  text-decoration: none;
+}
+
+.forgot-password {
+  margin-bottom: 30px;
+}
+
+.forgot-password a {
+  color: #316FEA;
+  text-decoration: none;
+}
+
+.cancel-button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1.2px #d3d8dc solid;
+  background-color: #ffffff;
+  color: #060E1E;
+  font-size: 16px;
+  line-height: 21px;
+  margin-bottom: 20px;
+}
