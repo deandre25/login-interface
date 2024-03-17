@@ -1,11 +1,19 @@
-import GoogleIcon from '../images/Google.svg';
-import GithubIcon from '../images/GitHub.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+
+import GoogleIcon from '../images/Google.svg';
+import GithubIcon from '../images/GitHub.svg';
+
 import './style.scss';
 import axios from 'axios';
 import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
+import CustomButton from './CustomButton/CustomButton';
+
+const GITHUB_CLIENT_ID = '06bc5840d4d36adf3eea';
+const GITHUB_CLIENT_SECRET = '50109c2bde9ba242d2d8f65dff8a7909351ed806';
+const TOKEN = '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';
 
 const Login = ({logo}) => {
   const [email, setEmail] = useState('');
@@ -52,6 +60,10 @@ const Login = ({logo}) => {
     }
   };
 
+  const login = useGoogleLogin({
+    onSuccess: tokenResponse => console.log(tokenResponse),
+  });
+
   return (
     <form onSubmit={isEmailEntered ? handleLogin : handleEmailSubmit}>
       <div className="container">
@@ -64,15 +76,9 @@ const Login = ({logo}) => {
         </h1>
 
         <div className="auth-buttons">
-          <button className='auth-buttons_btn'>
-            <img src={GoogleIcon} alt="Google icon" />
-            <p>Google</p>
-          </button>
+          <CustomButton title={'Google'} imageUrl={GoogleIcon} handleClick={login} />
 
-          <button className='auth-buttons_btn'>
-            <img src={GithubIcon} alt="GitHub icon" />
-            <p>Github</p>
-          </button>
+          <CustomButton title={'GitHub'} imageUrl={GithubIcon} handleClick={login} />
         </div>
 
         <div className="divider"></div>

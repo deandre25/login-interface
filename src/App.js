@@ -1,4 +1,6 @@
 import { Route, Routes, HashRouter } from 'react-router-dom';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+
 import './App.css';
 import Login from './components/Login';
 
@@ -8,10 +10,12 @@ import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 function App() {
   return (
     <HashRouter>
-      <Routes>
-        <Route path='/' element={<Login logo={Logo} />} />
-        <Route path='/forgot-password' element={<ForgotPassword logo={Logo} />} />
-      </Routes>
+      <GoogleOAuthProvider clientId="AIzaSyCArU7P7dFM4Q5nkWHI9tZ6bK2iMgkO7FQ">
+        <Routes>
+          <Route path='/' element={<Login logo={Logo} />} />
+          <Route path='/forgot-password' element={<ForgotPassword logo={Logo} />} />
+        </Routes>
+      </GoogleOAuthProvider>
     </HashRouter>
   );
 };
