@@ -11,9 +11,7 @@ import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import CustomButton from './CustomButton/CustomButton';
 
-const GITHUB_CLIENT_ID = '06bc5840d4d36adf3eea';
-const GITHUB_CLIENT_SECRET = '50109c2bde9ba242d2d8f65dff8a7909351ed806';
-const TOKEN = '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';
+
 
 const Login = ({logo}) => {
   const [email, setEmail] = useState('');
