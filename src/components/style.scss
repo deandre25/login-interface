@@ -16,6 +16,14 @@
   margin-bottom: 40px;
 }
 
+.text {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: -0.0024em;
+  text-align: left;
+}
+
 .logo {
   margin-bottom: 80px;
 }
@@ -119,6 +127,7 @@
   font-size: 16px;
   line-height: 21px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .register-link {
@@ -155,4 +164,5 @@
   font-size: 16px;
   line-height: 21px;
   margin-bottom: 20px;
+  cursor: pointer;
 }

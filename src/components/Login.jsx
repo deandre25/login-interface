@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+import { useGoogleLogin } from '@react-oauth/google';
 
 import GoogleIcon from '../images/Google.svg';
 import GithubIcon from '../images/GitHub.svg';
@@ -8,46 +8,35 @@ import GithubIcon from '../images/GitHub.svg';
 import './style.scss';
 import axios from 'axios';
 import { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CustomButton from './CustomButton/CustomButton';
 
-
-
 const Login = ({logo}) => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('test+ui@qencode.com');
   const [password, setPassword] = useState('');
   const [isEmailEntered, setIsEmailEntered] = useState(false);
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleEmailSubmit = async (e) => {
+  const handleEmailSubmit = (e) => {
     e.preventDefault();
-    // Проверка существования пользователя с введенной почтой
-    try {
-      // const response = await axios.post('https://auth-qa.qencode.com/v1/auth/login', {
-      //   email
-      // });
-      // Если пользователь существует, отобразить поле для ввода пароля
-      setIsEmailEntered(true);
-    } catch (error) {
-      console.error('Login failed:', error.response.data);
-      setError(error.response.data.detail);
-    }
+    setIsEmailEntered(true);
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // const response = await axios.post('https://auth-qa.qencode.com/v1/auth/login', {
-      //   email,
-      //   password
-      // });
+      const response = await axios.post('https://auth-qa.qencode.com/v1/auth/login', {
+        email,
+        password
+      });
 
-      // console.log('Login successful:', response.data);
+      console.log('Login successful:', response.data);
 
       setEmail('');
       setPassword('');
@@ -90,8 +79,9 @@ const Login = ({logo}) => {
           required
         />
         {isEmailEntered && (
-          <div className="password-input-container">
+          <>
             <div className="password-input">
+              <label className='text'>Password</label>
               <input 
                 type={showPassword ? 'text' : 'password'} 
                 className="input" 
@@ -107,7 +97,7 @@ const Login = ({logo}) => {
             <div className="forgot-password">
               <Link to="/forgot-password">Forgot your password?</Link>
             </div>
-          </div>
+          </>
         )}
         <button className="login-button" type="submit">
           Log in to Qencode

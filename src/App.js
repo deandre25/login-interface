@@ -6,6 +6,7 @@ import Login from './components/Login';
 
 import Logo from './images/Logo.png';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
+import CreateNewPassword from './components/CreateNewPassword/CreateNewPassword';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Login logo={Logo} />} />
           <Route path='/forgot-password' element={<ForgotPassword logo={Logo} />} />
+          <Route path='/create-new-password' element={<CreateNewPassword logo={Logo} />} />
         </Routes>
       </GoogleOAuthProvider>
     </HashRouter>
