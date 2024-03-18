@@ -1,27 +1,18 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
+import axios from 'axios';
 import { useGoogleLogin } from '@react-oauth/google';
+import { Link } from 'react-router-dom';
 
+import CustomButton from './CustomButton/CustomButton';
+import PasswordBtn from './PasswordBtn/PasswordBtn';
 import GoogleIcon from '../images/Google.svg';
 import GithubIcon from '../images/GitHub.svg';
-
-import './style.scss';
-import axios from 'axios';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import CustomButton from './CustomButton/CustomButton';
 
 const Login = ({logo}) => {
   const [email, setEmail] = useState('test+ui@qencode.com');
   const [password, setPassword] = useState('');
   const [isEmailEntered, setIsEmailEntered] = useState(false);
   const [error, setError] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
@@ -41,9 +32,9 @@ const Login = ({logo}) => {
       setEmail('');
       setPassword('');
       setError('');
-    } catch (error) {
-      console.error('Login failed:', error.response.data);
-      setError(error.response.data.detail);
+    } catch (err) {
+      setError(err.response.data.detail);
+      console.error('Login failed:', error);
     }
   };
 
@@ -79,25 +70,12 @@ const Login = ({logo}) => {
           required
         />
         {isEmailEntered && (
-          <>
-            <div className="password-input">
-              <label className='text'>Password</label>
-              <input 
-                type={showPassword ? 'text' : 'password'} 
-                className="input" 
-                placeholder="Password"
-                value={password} 
-                onChange={(e) => setPassword(e.target.value)} 
-                required 
-              />
-              <span className="toggle-password" onClick={togglePasswordVisibility}>
-                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-              </span>
-            </div>
+          <div className="password-input-container">
+            <PasswordBtn title={password} state={password} handlePasswordChange={setPassword} />
             <div className="forgot-password">
               <Link to="/forgot-password">Forgot your password?</Link>
             </div>
-          </>
+          </div>
         )}
         <button className="login-button" type="submit">
           Log in to Qencode

@@ -103,9 +103,9 @@
 }
 
 .password-input input {
-  padding-right: 40px; /* Расстояние для размещения иконки */
-  vertical-align: middle; /* Выравнивание по вертикали */
-  box-sizing: border-box; /* Учитываем padding в общей ширине */
+  padding-right: 40px;
+  vertical-align: middle;
+  box-sizing: border-box;
 }
 
 .password-input .toggle-password {
@@ -141,7 +141,6 @@
   margin-top: 10px;
   font-size: 14px;
   color: #316FEA;
-  /* Bootstrap primary color for example */
   text-decoration: none;
 }
 

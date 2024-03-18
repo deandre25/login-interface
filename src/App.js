@@ -2,6 +2,7 @@ import { Route, Routes, HashRouter } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 import './App.css';
+import './components/style.scss';
 import Login from './components/Login';
 
 import Logo from './images/Logo.png';
