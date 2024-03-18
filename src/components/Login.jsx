@@ -9,7 +9,7 @@ import GoogleIcon from '../images/Google.svg';
 import GithubIcon from '../images/GitHub.svg';
 
 const Login = ({logo}) => {
-  const [email, setEmail] = useState('test+ui@qencode.com');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isEmailEntered, setIsEmailEntered] = useState(false);
   const [error, setError] = useState('');
